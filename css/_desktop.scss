@@ -1,0 +1,207 @@
+:root {
+    --main-bg-color: #FFF136;
+    --nav-container-color: black;
+    --nav-font-size: 5vh;
+    --page-one-container-black: black;
+    --page-one-container-white: white;
+    --page-article-font-size: 5vh;
+    --text-color-green: #00ff38;
+    --text-color-rich-lilac : #b46be2;
+    --text-color-yellow: #FFF136;
+}
+
+@mixin centertext($property) {
+    display: flex;
+    justify-content: $property;
+    align-items: $property;
+}
+@mixin centralizer {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@mixin textspecs($textcolor, $textsize, $paddingvalue) {
+    color: $textcolor;
+    font-size: $textsize;
+    padding: $paddingvalue;
+}
+@mixin logospecs($fontsizevalue, $lineheightvalue, $textvalue, $positionvalue, $topvalue, $leftvalue, $zvalue){
+    font-size: $fontsizevalue;
+    line-height: $lineheightvalue;
+    color: $textvalue;
+    position: $positionvalue;
+    top: $topvalue;
+    left: $leftvalue;
+    z-index: $zvalue;
+}
+
+body{
+    background-color: var(--main-bg-color);
+    font-family: 'Jockey One', 'Roboto Condensed', sans-serif;   
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    margin: 0px 16px 0px 0px;
+    min-height: 200vh;
+}
+
+header{
+    width: calc(100vw/13);
+    height: 100vh;
+    background-color: var(--nav-container-color);
+    color: white;
+    position: fixed;
+    padding: 40px 0px 48px 0px;
+    user-select: none;
+
+    nav{
+        width: 100%;
+        min-height: 30px;
+        position: relative;
+
+        &:hover{
+            cursor: pointer;
+            .line_1{
+                left: 5px;
+            }
+            .line_2{
+                left: -8px;
+            }
+            .line_3{
+                left: 12px;
+            }
+        }
+
+        .burger_lines{
+            transform: rotate(45deg);
+            font-size: 70px;
+            color: var(--text-color-yellow);
+            line-height: 0.2;
+            position: relative;
+        }
+        .line_1{
+            left: 0px;
+            transition: left 0.5s;
+            @include centertext(center);
+        }
+        .line_2{
+            left: 0px;
+            transition: left 0.5s;
+            @include centertext(center);
+        }
+        .line_3{
+            left: 0px;
+            transition: left 0.5s;
+            @include centertext(center);
+        }
+    }
+
+    h1{
+        @include centralizer;
+        text-transform: uppercase;
+        font-size: var(--nav-font-size);
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+    }
+}
+
+.page_container{
+    grid-column: span 11 / 13;
+
+    .page_one{
+
+        .top_container, .bottom_container{
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+            gap: 16px;
+        }
+
+        .top_container{
+            min-height: 50vh;
+            color: white;
+            background-color: var(--page-one-container-black);
+
+            .logo_container{
+                grid-column: span 4;
+
+                .logo{
+                    text-transform: uppercase;
+                    text-align: right;
+                    padding: 0px 45px 0px 0px;  
+                    @include centralizer;
+
+                    .drizzle_text{
+                        @include logospecs(5vh, 1.6, var(--text-color-rich-lilac), relative, 0vh, -0.8vh, -1)
+                    }
+                    .tahini_text{
+                        @include logospecs(17vh, 0.45, var(--text-color-green), relative, 0vh, 0vh, 0)
+                    }
+                    .chickpeas_text{
+                        @include logospecs(6.5vh, 1, var(--text-color-yellow), relative, 0vh, -12.5vh, -2)
+                    }
+                }
+            }
+
+            .text_container{
+                grid-column: span 7;
+                @include textspecs(var(--text-color-green), var(--page-article-font-size), 16px);
+                @include centertext(center);
+            } 
+
+        }
+
+        .bottom_container{
+            min-height: 50vh;
+            color: white;
+
+            .icon_container{
+                background-color: var(--page-one-container-black);
+                grid-column: span 5;
+                background-image: url(../assets/photos/mae-mu-hugb85v0J04-unsplash.jpg);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;
+                position: relative;
+                
+                &:hover{
+                    cursor: pointer;
+                    .arrow{
+                        bottom: 26px;
+                    }
+                }
+
+                .arrow{
+                    transform: rotate(90deg);
+                    position: absolute;
+                    bottom: 36px;
+                    left: 27px;
+                    transition: bottom 0.4s;
+                }
+
+                
+            }
+
+            .text_container{
+                background-color: var(--page-one-container-white);
+                grid-column: span 6;
+                @include textspecs(var(--text-color-rich-lilac), var(--page-article-font-size), 16px);
+                .explore_menu_section{
+                    text-transform: uppercase;
+                    
+                    a{
+                        color: black;
+                        text-decoration: none;
+                    }
+                    img{
+                        display: inline-block;
+                    }
+                }
+            }  
+        }
+    
+    }
+}
