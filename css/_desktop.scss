@@ -135,13 +135,13 @@ header{
                     @include centralizer;
 
                     .drizzle_text{
-                        @include logospecs(5vh, 1.6, var(--text-color-rich-lilac), relative, 0vh, -0.8vh, -1)
+                        @include logospecs(5vh, 1.7, var(--text-color-rich-lilac), relative, 0vh, -0.6vh, -1)
                     }
                     .tahini_text{
                         @include logospecs(17vh, 0.45, var(--text-color-green), relative, 0vh, 0vh, 0)
                     }
                     .chickpeas_text{
-                        @include logospecs(6.5vh, 1, var(--text-color-yellow), relative, 0vh, -12.5vh, -2)
+                        @include logospecs(6.5vh, 1.1, var(--text-color-yellow), relative, 0vh, -12.5vh, -2)
                     }
                 }
             }
