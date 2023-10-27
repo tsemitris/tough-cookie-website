@@ -19,11 +19,13 @@
   <main>
     <header> 
       <nav>
-        <span class="material-symbols-outlined burger_lines line_1">pen_size_3</span>
-        <span class="material-symbols-outlined burger_lines line_2">pen_size_3</span>
-        <span class="material-symbols-outlined burger_lines line_3">pen_size_3</span>
+        <button type="button" id="navigation_button" class="nav_button" aria-label="Main menu">
+          <span class="material-symbols-outlined burger_lines line_1" aria-label="Main menu">pen_size_3</span>
+          <span class="material-symbols-outlined burger_lines line_2" aria-label="Main menu">pen_size_3</span>
+          <span class="material-symbols-outlined burger_lines line_3" aria-label="Main menu">pen_size_3</span>
+        </button>
+        <h1>Tough Cookie</h1>
       </nav>
-      <h1>Tough Cookie</h1>
     </header>
   
     <div class="page_container">
@@ -44,16 +46,91 @@
 
         <section class="bottom_container">
           <div class="icon_container">
-            <img class="arrow" src="assets/icons/arrow.svg" alt="arrow facing to the right" height="64" width="64" loading="lazy">
+            <img class="arrow" src="assets/icons/arrow.svg" alt="arrow facing down" height="64" width="64" loading="lazy">
           </div>
           <article class="text_container">
             <section>
               Crispy iceberg lettuce Caribbean red habanero blueberry chia seed jam overflowing berries roasted butternut squash basmati thyme hummus falafel bowl cozy butternut cilantro lime vinaigrette heat mint potato chocolate cookie seeds samosa walnut mushroom tart.
             </section>
             <section class="explore_menu_section">
-              <a href="#">Explore menu <img src="assets/icons/arrow2.svg" alt="arrow facing to the down" width="34" height="30"  loading="lazy"></a>
+              <a href="#">Explore menu <img src="assets/icons/arrow2.svg" alt="arrow facing to the right" width="34" height="30"  loading="lazy"></a>
             </section>
           </article>
+        </section>
+
+      </div>
+
+      <div class="page_two">
+        
+        <section class="top_container">
+          <div class="first_menu_photo"></div>
+          <div class="second_menu_photo"></div>
+          <div class="third_menu_photo"></div>
+        </section>
+
+        <section class="bottom_container">
+
+          <!-- icon -->
+          <!-- This is a test ! <div class="menu_label_box"><div class="menu_label_text">popular</div></div> -->
+
+          <ul class="menu_list">
+            <li class="menu_list_block">
+              <span class="menu_list_item_name">
+                Halloumi Moklieh 
+                <span class="label_box_content_new" aria-label="New!">
+                  <span class="label_text_content_new" aria-label="New!">
+                    New!
+                  </span>
+                </span>
+              </span>
+              <span class="menu_list_item_desc">Deep-fried halloumi</span>
+              <span class="menu_list_item_price">195 kr</span>
+            </li>
+            <li class="menu_list_block">
+              <span class="menu_list_item_name">Mojaddara</span>
+              <span class="menu_list_item_desc">Green lentis with rice and fried onion'</span>
+              <span class="menu_list_item_price">135kr</span>
+            </li>
+            <li class="menu_list_block">
+              <span class="menu_list_item_name">Chiar & Laban</span>
+              <span class="menu_list_item_desc">Lebanese spicy yoghurt with chopped cucumber</span>
+              <span class="menu_list_item_price">95 kr</span>
+            </li>
+            <li class="menu_list_block">
+              <span class="menu_list_item_name">Warak Inab</span>
+              <span class="menu_list_item_desc">Rice- and veggie-filled dolma with mint and lemon</span>
+              <span class="menu_list_item_price">85 kr</span>
+            </li>
+            <li class="menu_list_block">
+              <span class="menu_list_item_name">Mountabbal Batinzian
+                <span class="label_box_content_vegan" aria-label="Vegan">
+                  <span class="label_text_content_vegan" aria-label="Vegan">
+                    Vegan
+                  </span>
+                </span>
+              </span>
+              <span class="menu_list_item_desc">Smoked chopped aubergine, sesame paste, garlic and lemon</span>
+              <span class="menu_list_item_price">175 kr</span>
+            </li>
+            <li class="menu_list_block">
+              <span class="menu_list_item_name">
+                Ardishoki
+                <span class="label_box_content_popular" aria-label="Popular">
+                  <span class="label_text_content_popular" aria-label="Popular">
+                    Popular
+                  </span>
+                </span>
+              </span>
+              <span class="menu_list_item_desc">Artichoke with lemon and garlic marinade</span>
+              <span class="menu_list_item_price">99 kr</span>
+            </li>
+            <li class="menu_list_block">
+              <span class="menu_list_item_name">Mhamara</span>
+              <span class="menu_list_item_desc">Spicy bell pepper relish with crushed walnuts and pomegranate syrup</span>
+              <span class="menu_list_item_price">123 kr</span>
+            </li>
+          </ul>
+          
         </section>
 
       </div>

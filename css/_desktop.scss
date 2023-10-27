@@ -1,4 +1,6 @@
 :root {
+    --main-font: 'Jockey One', 'Roboto Condensed', sans-serif;
+    --secondary-font: 'Roboto Condensed', serif;
     --main-bg-color: #FFF136;
     --nav-container-color: black;
     --nav-font-size: 5vh;
@@ -8,12 +10,27 @@
     --text-color-green: #00ff38;
     --text-color-rich-lilac : #b46be2;
     --text-color-yellow: #FFF136;
+    --menu-list-name-price-font-size: 5vh;
+    --menu-list-desc-font-size: 3vh; 
+    --menu-label-font-size: 1.7vh;
+    --menu-label-color-green: #00ff38;
+    --menu-label-color-rich-lilac : #b46be2;
+    --menu-label-color-yellow: #FFF136;
 }
 
-@mixin centertext($property) {
+// Function to covert px to rem
+@function remfunction($sizeinpx){
+    @return calc($sizeinpx / 16) * 1rem;
+}
+
+@mixin centertext($justifycontentvalue, $alignitemsvalue) {
     display: flex;
-    justify-content: $property;
-    align-items: $property;
+    @if $justifycontentvalue != none {
+        justify-content: $justifycontentvalue;
+    }
+    @if $alignitemsvalue != none{
+        align-items: $alignitemsvalue;
+    }
 }
 @mixin centralizer {
     position: relative;
@@ -35,19 +52,59 @@
     left: $leftvalue;
     z-index: $zvalue;
 }
+@mixin backgroundurl ($Backgroundimageurl, $Backgroundsizevalue, $Backgroundrepeatvalue, $Backgroundpositionvalue){
+    background-image: $Backgroundimageurl;
+    background-size: $Backgroundsizevalue;
+    background-repeat: $Backgroundrepeatvalue;
+    background-position: $Backgroundpositionvalue;
+}
+@mixin menulabelbox ($backgroundcolor, $blockrotation, $blockpadding){
+    display: inline-block;
+    background-color: $backgroundcolor;
+    transform: $blockrotation;
+    padding: $blockpadding;
+}
+@mixin websitegrip ($gridtemplatecolumsvalue, $gapvalue){
+    display: grid;
+    grid-template-columns: $gridtemplatecolumsvalue;
+    gap: $gapvalue;
+}
+@mixin labelbox ($backgroundcolor, $displayvalue, $transformvalue, $marginvalue){
+    background-color: $backgroundcolor;
+    display: $displayvalue;
+    @if $transformvalue != none{
+        transform: $transformvalue;
+    }
+    @if $marginvalue != 0 {
+        margin: $marginvalue;
+    }
+    width: 80px;
+}
+@mixin labeltext ($fontsizevalue, $transformvalue){
+    font-size: $fontsizevalue;
+    @if $transformvalue != none{
+        transform: $transformvalue;
+    }
+}
 
 body{
     background-color: var(--main-bg-color);
-    font-family: 'Jockey One', 'Roboto Condensed', sans-serif;   
+    font-family: var(--main-font);   
 }
 
 main{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 16px;
-    margin: 0px 16px 0px 0px;
-    min-height: 200vh;
+    margin: 0 16px 0 0;
+    min-height: 100vh;
 }
+
+/*
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+- HEADER +-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
 
 header{
     width: calc(100vw/13);
@@ -60,57 +117,75 @@ header{
 
     nav{
         width: 100%;
-        min-height: 30px;
+        height: 100%;
         position: relative;
 
-        &:hover{
-            cursor: pointer;
+        .nav_button{
+            background: none;
+            border: none;
+            width: 100%;
+            
+            &:hover{
+                cursor: pointer;
+                .line_1{
+                    left: 5px;
+                }
+                .line_2{
+                    left: -8px;
+                }
+                .line_3{
+                    left: 12px;
+                }
+            }
+    
+            .burger_lines{
+                transform: rotate(45deg);
+                font-size: remfunction(70);
+                color: var(--text-color-yellow);
+                line-height: 0.2;
+                position: relative;
+            }
             .line_1{
-                left: 5px;
+                left: 0px;
+                transition: left 0.5s;
+                @include centertext(center, center);
             }
             .line_2{
-                left: -8px;
+                left: 0px;
+                transition: left 0.5s;
+                @include centertext(center, center);
             }
             .line_3{
-                left: 12px;
+                left: 0px;
+                transition: left 0.5s;
+                @include centertext(center, center);
             }
         }
+        
 
-        .burger_lines{
-            transform: rotate(45deg);
-            font-size: 70px;
-            color: var(--text-color-yellow);
-            line-height: 0.2;
-            position: relative;
-        }
-        .line_1{
-            left: 0px;
-            transition: left 0.5s;
-            @include centertext(center);
-        }
-        .line_2{
-            left: 0px;
-            transition: left 0.5s;
-            @include centertext(center);
-        }
-        .line_3{
-            left: 0px;
-            transition: left 0.5s;
-            @include centertext(center);
+        h1{
+            @include centralizer;
+            text-transform: uppercase;
+            font-size: var(--nav-font-size);
+            writing-mode: vertical-rl;
+            text-orientation: upright;
         }
     }
 
-    h1{
-        @include centralizer;
-        text-transform: uppercase;
-        font-size: var(--nav-font-size);
-        writing-mode: vertical-rl;
-        text-orientation: upright;
-    }
+    
 }
+
+
+/*
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+- PAGE CONTAINER +-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
 
 .page_container{
     grid-column: span 11 / 13;
+
+    // ----------------1<-------------[ PAGE ONE ]------------------
 
     .page_one{
 
@@ -122,7 +197,6 @@ header{
 
         .top_container{
             min-height: 50vh;
-            color: white;
             background-color: var(--page-one-container-black);
 
             .logo_container{
@@ -149,14 +223,13 @@ header{
             .text_container{
                 grid-column: span 7;
                 @include textspecs(var(--text-color-green), var(--page-article-font-size), 16px);
-                @include centertext(center);
+                @include centertext(center, center);
             } 
 
         }
 
         .bottom_container{
             min-height: 50vh;
-            color: white;
 
             .icon_container{
                 background-color: var(--page-one-container-black);
@@ -204,4 +277,109 @@ header{
         }
     
     }
+
+    // ----------------2<-------------[ PAGE TWO ]------------------
+
+    .page_two{
+        padding: 16px 0px 16px 0px;
+
+        .top_container, .bottom_container{
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+            gap: 16px;
+        }
+        
+        .top_container{
+            height: 50vh;
+            margin-bottom: 16px;
+
+            .first_menu_photo{
+                @include backgroundurl(url(../assets/photos/edgar-castrejon-1SPu0KT-Ejg-unsplash.jpg), cover, no-repeat, center center);
+                grid-column: span 3;
+            }
+            .second_menu_photo{
+                @include backgroundurl(url(../assets/photos/kao-rodriguez-IeTzHiuepmU-unsplash.jpg), cover, no-repeat, center center);
+                grid-column: span 4;
+            }
+            .third_menu_photo{
+                @include backgroundurl(url(../assets/photos/mor-shani-kQloRmVQYIs-unsplash.jpg), cover, no-repeat, center center);
+                grid-column: span 4;
+            }
+        }
+
+        .bottom_container{
+            min-height: 50vh;
+
+            .menu_list{
+                margin: 0;
+                padding: 0; 
+                list-style-type: none;
+                grid-column: span 11;
+
+                .menu_list_block{
+                    @include websitegrip(repeat(11, 1fr), 16px);
+                    padding: 8px;
+                    background-color: white;
+                    border-bottom: remfunction(3) solid black;
+                    border-top: remfunction(3) solid black;
+                    margin: 0 0 10px 0;
+
+
+                    .menu_list_item_name{
+                        grid-column: span 4;
+                        font-size: var(--menu-list-name-price-font-size);
+                        text-transform: uppercase;
+                        @include centertext(none, center);
+                        
+                        .label_box_content_new{
+                            @include labelbox(var(--menu-label-color-rich-lilac), inline-flex, rotate(4deg), 0 0 0 10px);
+                            font-family: var(--secondary-font);
+
+                            .label_text_content_new{
+                                @include labeltext(var(--menu-label-font-size), rotate(354deg));
+                                @include centertext(center, none);
+                                width: 100%;  
+                           }
+                        }
+
+                        .label_box_content_vegan{
+                            @include labelbox(var(--menu-label-color-green), inline-flex, rotate(355deg), 0 0 0 10px);
+                            font-family: var(--secondary-font);
+
+                            .label_text_content_vegan{
+                                @include labeltext(var(--menu-label-font-size), rotate(3deg));
+                                @include centertext(center, none);
+                                width: 100%;   
+                           }
+                        }
+
+                        .label_box_content_popular{
+                            @include labelbox(var(--menu-label-color-yellow), inline-flex, none, 0 0 0 10px);
+                            font-family: var(--secondary-font);
+
+                            .label_text_content_popular{
+                                @include labeltext(var(--menu-label-font-size), none);
+                                @include centertext(center, none);
+                                width: 100%;    
+                           }
+                        }
+                    }
+
+                    .menu_list_item_desc{
+                        font-family: var(--secondary-font);
+                        font-size: var(--menu-list-desc-font-size);
+                        grid-column: span 6;
+                        @include centertext(none, center);
+                    }
+
+                    .menu_list_item_price{
+                        grid-column: span 1;
+                        font-size: var(--menu-list-name-price-font-size);
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+
 }
