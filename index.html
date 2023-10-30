@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta property="og:title" content="How to Become an SEO Expert (8 Steps)" />
+  <meta property="og:description" content="Get from SEO newbie to SEO pro in 8 simple steps." />
+  <meta property="og:image" content="https://ahrefs.com/blog/wp-content/uploads/2019/12/fb-how-to-become-an-seo-expert.png" /> -->
   <title>Tough Cookie</title>
   <link rel="stylesheet" href="css/style.css" type="text/css">
 
@@ -12,14 +15,14 @@
   <!-- Jockey one and Roboto Condensed -->
   <link href="https://fonts.googleapis.com/css2?family=Jockey+One&family=Roboto+Condensed&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 
 </head>
 <body>
   <main>
     <header> 
       <nav>
-        <button type="button" id="navigation_button" class="nav_button" aria-label="Main menu">
+        <button type="button" id="navigation_button" class="nav_button">
           <span class="material-symbols-outlined burger_lines line_1" aria-label="Main menu">pen_size_3</span>
           <span class="material-symbols-outlined burger_lines line_2" aria-label="Main menu">pen_size_3</span>
           <span class="material-symbols-outlined burger_lines line_3" aria-label="Main menu">pen_size_3</span>
@@ -70,15 +73,12 @@
 
         <section class="bottom_container">
 
-          <!-- icon -->
-          <!-- This is a test ! <div class="menu_label_box"><div class="menu_label_text">popular</div></div> -->
-
           <ul class="menu_list">
             <li class="menu_list_block">
               <span class="menu_list_item_name">
                 Halloumi Moklieh 
-                <span class="label_box_content_new" aria-label="New!">
-                  <span class="label_text_content_new" aria-label="New!">
+                <span class="label_box_content_new">
+                  <span class="label_text_content_new">
                     New!
                   </span>
                 </span>
@@ -102,9 +102,10 @@
               <span class="menu_list_item_price">85 kr</span>
             </li>
             <li class="menu_list_block">
-              <span class="menu_list_item_name">Mountabbal Batinzian
-                <span class="label_box_content_vegan" aria-label="Vegan">
-                  <span class="label_text_content_vegan" aria-label="Vegan">
+              <span class="menu_list_item_name">
+                Mountabbal Batinzian 
+                <span class="label_box_content_vegan">
+                  <span class="label_text_content_vegan">
                     Vegan
                   </span>
                 </span>
@@ -114,9 +115,9 @@
             </li>
             <li class="menu_list_block">
               <span class="menu_list_item_name">
-                Ardishoki
-                <span class="label_box_content_popular" aria-label="Popular">
-                  <span class="label_text_content_popular" aria-label="Popular">
+                Ardishoki 
+                <span class="label_box_content_popular">
+                  <span class="label_text_content_popular">
                     Popular
                   </span>
                 </span>
@@ -135,8 +136,87 @@
 
       </div>
     </div>
-    
   </main>
+
+  <footer>
+    <div class="container">
+      <section class="left_container">
+        <form class="book_table_container">
+          <ul>
+            <li>
+              <h1 class="head_title">Book your table</h1>
+            </li>
+            <li>
+              <label for="name_input" class="title_container">Name</label>
+              <input type="text" id="name_input" placeholder="Enter your name here" class="input_container" required>
+            </li>
+            <li>
+              <label for="email_input" class="title_container">Email</label>
+              <input type="email" id="email_input" placeholder="Enter your email here" class="input_container" required>
+            </li>
+            <li>
+              <label for="phone_number_input" class="title_container">Phone</label>
+              <input type="email" id="phone_number_input" placeholder="Enter your phone here" class="input_container" required>
+            </li>
+            <li>
+              <label for="date_input" class="title_container">Date</label>
+              <input type="date" id="date_input" class="input_container" required>
+            </li>
+            <li>
+              <label for="party_size_input" class="title_container">Party size</label>
+              <select id="party_size_input" name="" class="input_container dropdown_icon" required>
+                <option value="" disabled selected hidden>Enter the party size here</option>
+                <option value="value_number_one">1</option>
+                <option value="value_number_two">2</option>
+                <option value="value_number_three">3</option>
+                <option value="value_number_four">4</option>
+                <option value="value_number_five">5</option>
+                <option value="value_number_six">6</option>
+                <option value="value_number_seven">7</option>
+                <option value="value_number_eight">8</option>
+                <option value="value_number_nine">9</option>
+                <option value="value_number_ten">10</option>
+              </select>
+            </li>
+            <li>
+              <label for="allergies_input" class="title_container">Allergies</label>
+              <input type="text" id="allergies_input" placeholder="Write your allergies here" class="input_container">
+            </li>
+            <li>
+              <input type="reset" value="Cancel" class="cancel_button">
+              <input type="submit" value="Request" class="request_button">
+            </li>
+          </ul>
+          
+          
+        </form>
+      </section>
+      <section class="right_container">
+        <div class="contact_info">
+          <div class="background_image"></div>
+          <div class="info">
+            <ul>
+              <li>
+                <span class="material-symbols-outlined info_icon">call</span>
+                <span class="text">+46 8 123 45 67</span>
+              </li>
+              <li>
+                <span class="material-symbols-outlined info_icon">alternate_email</span>
+                <span class="text">book@toughcookie.com</span>
+              </li>
+              <li>
+                <span class="material-symbols-outlined info_icon">location_on</span>
+                <span class="text">Brända Tomten 111 31 Stockholm</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        
+      </section>
+    </div>
+    
+  </footer>
   
 </body>
 </html>

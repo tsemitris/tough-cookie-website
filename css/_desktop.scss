@@ -16,6 +16,15 @@
     --menu-label-color-green: #00ff38;
     --menu-label-color-rich-lilac : #b46be2;
     --menu-label-color-yellow: #FFF136;
+    --footer-color-green: #00ff38;
+    --footer-title-font-size: 4.5vw;
+    --footer-under-text-font-size: 3vw;
+    --footer-input-text-font-size: 2vw;
+    --footer-cancel-button-color: #b46be2;
+    --footer-request-button-color: #FFF136;
+    --footer-contact-info-icons-size: 4.5vw;
+    --footer-contact-info-text-font-size: 2.2vw;
+    --footer-contact-info-text-color: #3cc1ee;
 }
 
 // Function to covert px to rem
@@ -67,7 +76,9 @@
 @mixin websitegrip ($gridtemplatecolumsvalue, $gapvalue){
     display: grid;
     grid-template-columns: $gridtemplatecolumsvalue;
-    gap: $gapvalue;
+    @if $gapvalue != 0{
+        gap: $gapvalue;
+    }
 }
 @mixin labelbox ($backgroundcolor, $displayvalue, $transformvalue, $marginvalue){
     background-color: $backgroundcolor;
@@ -86,6 +97,11 @@
         transform: $transformvalue;
     }
 }
+@mixin normalizeul{
+    margin: 0;
+    padding: 0; 
+    list-style-type: none;
+}
 
 body{
     background-color: var(--main-bg-color);
@@ -96,7 +112,6 @@ main{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 16px;
-    margin: 0 16px 0 0;
     min-height: 100vh;
 }
 
@@ -184,6 +199,7 @@ header{
 
 .page_container{
     grid-column: span 11 / 13;
+    padding: 0 16px 0 0;
 
     // ----------------1<-------------[ PAGE ONE ]------------------
 
@@ -381,5 +397,141 @@ header{
             }
         }
     }
+}
+
+
+footer{
+    @include websitegrip(repeat(12, 1fr), 16px);
+    min-height: 100vh;
+    background-color: white;
+
+    .container{
+        grid-column: span 11 / 13;
+        background-color: var(--footer-color-green);
+
+        @include websitegrip(repeat(11, 1fr), 16px);
+
+        .left_container{
+            grid-column: span 5;
+            @include centertext(center, center);
+
+            .book_table_container{
+                width: 42vw;
+                height: 75vh;
+
+                ul{
+                    @include normalizeul;
+                    margin: 0 0 0 16px;
+                    padding: 0 remfunction(51) 0 0;
+
+                    li{
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 0 0 remfunction(35) 0;
+
+                        .head_title{
+                            font-size: var(--footer-title-font-size);
+                            font-weight: normal;
+                            text-transform: uppercase;
+                        }
+
+                        .title_container{
+                            width: 32%;
+                            font-size: var(--footer-contact-info-text-font-size);
+                            text-transform: uppercase;
+                        }
+
+                        .input_container{
+                            width: 90%;
+                            border: none;
+                            border-radius: remfunction(16);
+                            padding: 0 remfunction(16) 0 remfunction(16);
+
+                            &:focus{
+                                outline: none;
+                            }
+                        }
+
+                        .dropdown_icon{
+                            appearance: none;
+                            background-image: url(../assets/icons/dropdown_icon.svg);
+                            background-repeat: no-repeat;
+                            background-position: right 1rem center;
+                            background-size: 1.2em;
+                        }
+
+                        .cancel_button, .request_button{
+                            width: 50%;
+                            border: none;
+                            border-radius: remfunction(16);
+                            text-transform: uppercase;
+                            font-size: var(--footer-contact-info-text-font-size);
+                            cursor: pointer;
+                        }
+
+                        .cancel_button{
+                            background-color: var(--footer-cancel-button-color);
+                            margin: 0 16px 0 0;
+                        }
+                        .request_button{
+                            background-color: var(--footer-request-button-color);
+                        }
+
+                    }
+                }
+
+            }
+        }
+        .right_container{
+            grid-column: span 6;
+            @include centertext(center, center);
+
+            .contact_info{
+                width: 42vw;
+                height: 75vh;
+                position: relative;
+                
+                .background_image{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    @include backgroundurl(url('../assets/photos/ronan-kruithof-PCE0T5i4pDI-unsplash.jpg'), cover, no-repeat, center center);
+                    filter: blur(3px);
+                }
+
+                .info{
+                    width: 100%;
+                    height: 100%;
+                    @include centralizer;
+                    @include centertext(center, center);
+                    // padding: 3vh; 
+                    
+                    ul{
+                        @include normalizeul;
+
+                        li{
+                            color: var(--footer-contact-info-text-color); 
+                            filter: drop-shadow(-4px -1px 0px #000000);
+                            display: inline-block;
+                            width: 100%;
+                            margin: 0 0 29px 0;
+                            @include centertext(none, center);
+
+                            .info_icon{
+                                font-size: var(--footer-contact-info-icons-size);
+                                display: inline-block;
+                                margin: 0 10px 0 0;
+                            }
+
+                            .text{
+                                font-size: var(--footer-contact-info-text-font-size)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }
+
