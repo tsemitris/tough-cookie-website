@@ -41,8 +41,8 @@
         align-items: $alignitemsvalue;
     }
 }
-@mixin centralizer {
-    position: relative;
+@mixin centralizer ($positionvalue) {
+    position: $positionvalue;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -129,62 +129,104 @@ header{
     position: fixed;
     padding: 40px 0px 48px 0px;
     user-select: none;
+    @include centertext(center, center);
+    flex-direction: column;
 
-    nav{
-        width: 100%;
-        height: 100%;
-        position: relative;
+    .menu_icon_container{
+        @include centertext(center, center);
 
-        .nav_button{
-            background: none;
-            border: none;
-            width: 100%;
-            
-            &:hover{
-                cursor: pointer;
-                .line_1{
+        &:hover{
+            input:not(:checked)  + .menu_button {
+                .burger_lines:nth-child(1){
+                    left: 2px;
+                }
+                .burger_lines:nth-child(2){
+                    left: -5px;
+                }
+                .burger_lines:nth-child(3){
                     left: 5px;
                 }
-                .line_2{
-                    left: -8px;
+            }
+        }
+
+        .menu_button{
+            background: none;
+            border: none;
+            @include centertext(center, center);
+            flex-direction: column;
+            pointer-events: none;
+    
+    
+            .burger_lines{
+                display: block;
+                width: 30px;
+                height: 5px;
+                background-color: var(--text-color-yellow);
+                border-radius: 6px;
+                margin-bottom: 4px;
+                position: relative;
+    
+                &:nth-child(1){
+                    left: 0px;
+                    transition: left 0.5s;
+                    @include centertext(center, center);
                 }
-                .line_3{
-                    left: 12px;
+                &:nth-child(2){
+                    left: 0px;
+                    transition: left 0.5s;
+                    @include centertext(center, center);
+                }
+                &:nth-child(3){
+                    left: 0px;
+                    top: 0px;
+                    transition: left 0.5s;
+                    @include centertext(center, center);
+                }
+            }
+        }
+    
+        input{
+            position: fixed;
+            width: 40px;
+            height: 30px;
+            opacity: 0;
+            cursor: pointer;
+    
+            &:not(:checked) + .menu_button .burger_lines {
+                position: relative;
+                transition: all 0.5s ease-in-out;
+    
+                &:nth-child(3){
+                    top: 0;
                 }
             }
     
-            .burger_lines{
-                transform: rotate(45deg);
-                font-size: remfunction(70);
-                color: var(--text-color-yellow);
-                line-height: 0.2;
+            &:checked + .menu_button .burger_lines {
                 position: relative;
-            }
-            .line_1{
-                left: 0px;
-                transition: left 0.5s;
-                @include centertext(center, center);
-            }
-            .line_2{
-                left: 0px;
-                transition: left 0.5s;
-                @include centertext(center, center);
-            }
-            .line_3{
-                left: 0px;
-                transition: left 0.5s;
-                @include centertext(center, center);
+                transition: all 0.5s ease-in-out;
+    
+                &:nth-child(1){
+                    opacity: 0;
+                }
+                &:nth-child(2){
+                    transform: rotate(45deg);
+                }
+                &:nth-child(3){
+                    transform: rotate(-45deg);
+                    top: -8px;
+                }
             }
         }
-        
+    }
+    
+    
 
-        h1{
-            @include centralizer;
-            text-transform: uppercase;
-            font-size: var(--nav-font-size);
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-        }
+    h1{
+        text-transform: uppercase;
+        font-size: var(--nav-font-size);
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        @include centertext(none, center);
     }
 
     
@@ -222,7 +264,7 @@ header{
                     text-transform: uppercase;
                     text-align: right;
                     padding: 0px 45px 0px 0px;  
-                    @include centralizer;
+                    // @include centralizer(relative);
 
                     .drizzle_text{
                         @include logospecs(5vh, 1.7, var(--text-color-rich-lilac), relative, 0vh, -0.6vh, -1)
@@ -399,6 +441,11 @@ header{
     }
 }
 
+/*
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+- FOOTER +-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
 
 footer{
     @include websitegrip(repeat(12, 1fr), 16px);
@@ -411,6 +458,7 @@ footer{
 
         @include websitegrip(repeat(11, 1fr), 16px);
 
+        // ----------------1<-------------[ LEFT SIDE ]------------------
         .left_container{
             grid-column: span 5;
             @include centertext(center, center);
@@ -482,6 +530,8 @@ footer{
 
             }
         }
+
+        // ----------------2<-------------[ RIGHT SIDE ]------------------
         .right_container{
             grid-column: span 6;
             @include centertext(center, center);
@@ -502,7 +552,7 @@ footer{
                 .info{
                     width: 100%;
                     height: 100%;
-                    @include centralizer;
+                    @include centralizer(relative);
                     @include centertext(center, center);
                     // padding: 3vh; 
                     
