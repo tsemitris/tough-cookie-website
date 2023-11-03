@@ -33,9 +33,15 @@
     --footer-contact-info-icons-size: 4.5vw;
     --footer-contact-info-text-font-size: 2.2vw;
     --footer-contact-info-text-color: #3cc1ee;
+    --cookie-container-color: #b46be2;
+    --cookie-content-size: 1.5rem;
+    --cookie-content-color: white;
+    --cookie-button-text-size: 2.3rem;
+    --cookie-decline-color: #00ff38;
+    --cookie-accept-color: #FFF136;
 }
 
-// Function to covert px to rem
+
 @function remfunction($sizeinpx){
     @return calc($sizeinpx / 16) * 1rem;
 }
@@ -81,8 +87,10 @@
     transform: $blockrotation;
     padding: $blockpadding;
 }
-@mixin websitegrip ($gridtemplatecolumsvalue, $gapvalue) {
-    display: grid;
+@mixin websitegrid ($displayvalue, $gridtemplatecolumsvalue, $gapvalue) {
+    @if $displayvalue != none {
+        display: $displayvalue; // <- grid
+    }
     grid-template-columns: $gridtemplatecolumsvalue;
     @if $gapvalue != 0{
         gap: $gapvalue;
@@ -117,9 +125,7 @@ body {
 }
 
 main {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 16px;
+    @include websitegrid(grid, repeat(12, 1fr), 16px);
     min-height: 100vh;
 }
 
@@ -246,8 +252,7 @@ header {
             transition: all 0.5s ease-in-out;
 
             .grid_container {
-                display: grid;
-                grid-template-columns: repeat(12,1fr);
+                @include websitegrid(grid, repeat(12, 1fr), 0);
                 height: 100vh; 
 
                 ul{
@@ -290,8 +295,7 @@ header {
     .page_one {
 
         .top_container, .bottom_container {
-            display: grid;
-            grid-template-columns: repeat(11, 1fr);
+            @include websitegrid(grid, repeat(11, 1fr), 0);
             gap: 16px;
         }
 
@@ -384,9 +388,7 @@ header {
         padding: 16px 0px 16px 0px;
 
         .top_container, .bottom_container {
-            display: grid;
-            grid-template-columns: repeat(11, 1fr);
-            gap: 16px;
+            @include websitegrid(grid, repeat(11, 1fr), 16px);
         }
         
         .top_container {
@@ -417,7 +419,7 @@ header {
                 grid-column: span 11;
 
                 .menu_list_block {
-                    @include websitegrip(repeat(11, 1fr), 16px);
+                    @include websitegrid(grid, repeat(11, 1fr), 16px);
                     padding: 8px;
                     background-color: white;
                     border-bottom: remfunction(3) solid black;
@@ -490,7 +492,7 @@ header {
 */
 
 footer {
-    @include websitegrip(repeat(12, 1fr), 16px);
+    @include websitegrid(grid, repeat(12, 1fr), 16px);
     min-height: 100vh;
     background-color: white;
 
@@ -498,7 +500,7 @@ footer {
         grid-column: span 11 / 13;
         background-color: var(--footer-color-green);
 
-        @include websitegrip(repeat(11, 1fr), 16px);
+        @include websitegrid(grid, repeat(11, 1fr), 16px);
 
         // ----------------1<-------------[ LEFT SIDE ]------------------
         .left_container {
@@ -624,6 +626,58 @@ footer {
             }
         }
     }
+
+}
+
+/*
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+  COOKIE -+-+-+-+-+-+-+-+-+-+-+-+--+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
+
+.cookie_container {
+    width: 100vw;
+    height: 12vh;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cookie-container-color);
+    position: fixed;
+    z-index: var(--cookie-z-index);
+    @include centertext(center, center);
+    @include websitegrid(grid, repeat(12, 1fr), 16px);
+
+    .content {
+        grid-column: span 6 / 8;
+        font-family: var(--secondary-font);
+        font-size: var(--cookie-content-size);
+        color: var(--cookie-content-color);
+    }
+    .cookie_buttons {
+        grid-column: span 5 / 13;
+        gap: 16px;
+        height: 100%;
+        @include centertext(center, center);
+
+        button{
+            &:nth-child(1), &:nth-child(2){
+                width: 30%;
+                border: none;
+                border-radius: remfunction(16);
+                text-transform: uppercase;
+                font-size: var(--cookie-button-text-size); 
+                cursor: pointer;      
+                user-select: none;      
+            }
+
+            &:nth-child(1) {
+                background-color: var(--cookie-decline-color);
+            }
+            &:nth-child(2) {
+                background-color: var(--cookie-accept-color);
+            }
+        }
+    }
+
 
 }
 
