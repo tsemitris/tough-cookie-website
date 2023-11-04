@@ -1,5 +1,9 @@
+@import 'root';
+@import 'functions';
+@import 'mixins';
+
 body{
-    background-color: aqua;
+    background-color: var(--main-bg-color);
 }
 
 header{

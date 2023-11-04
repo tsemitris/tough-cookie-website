@@ -1,123 +1,6 @@
-:root {
-    --main-font: 'Jockey One', 'Roboto Condensed', sans-serif;
-    --secondary-font: 'Roboto Condensed', serif;
-    --cookie-z-index: 5;
-    --header-z-index: 4;
-    --nav-z-index: 3;
-    --main-content-z-index: 2;
-    --logo-extra-z-index: 1;
-    --main-bg-color: #FFF136;
-    --header-container-color: black;
-    --header-business-name-font-size: 5vh;
-    --header-burger-color: #FFF136;
-    --nav-background-color: #b46be2;
-    --nav-font-size: 9vh;
-    --nav-text-color: white;
-    --page-one-container-black: black;
-    --page-one-container-white: white;
-    --page-article-font-size: 2.5rem;
-    --text-color-green: #00ff38;
-    --text-color-rich-lilac : #b46be2;
-    --text-color-yellow: #FFF136;
-    --menu-list-name-price-font-size: 3rem;
-    --menu-list-desc-font-size: 1.5rem; 
-    --menu-label-font-size: 1rem;
-    --menu-label-color-green: #00ff38;
-    --menu-label-color-rich-lilac : #b46be2;
-    --menu-label-color-yellow: #FFF136;
-    --footer-color-green: #00ff38;
-    --footer-title-font-size: 4.5rem;
-    --footer-under-text-font-size: 2.3rem;
-    --footer-cancel-button-color: #b46be2;
-    --footer-request-button-color: #FFF136;
-    --footer-contact-info-icons-size: 4.5vw;
-    --footer-contact-info-text-font-size: 2.2vw;
-    --footer-contact-info-text-color: #3cc1ee;
-    --cookie-container-color: #b46be2;
-    --cookie-content-size: 1.5rem;
-    --cookie-content-color: white;
-    --cookie-button-text-size: 2.3rem;
-    --cookie-decline-color: #00ff38;
-    --cookie-accept-color: #FFF136;
-}
-
-
-@function remfunction($sizeinpx){
-    @return calc($sizeinpx / 16) * 1rem;
-}
-
-@mixin centertext($justifycontentvalue, $alignitemsvalue) {
-    display: flex;
-    @if $justifycontentvalue != none {
-        justify-content: $justifycontentvalue;
-    }
-    @if $alignitemsvalue != none{
-        align-items: $alignitemsvalue;
-    }
-}
-@mixin centralizer ($positionvalue) {
-    position: $positionvalue;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-@mixin textspecs($textcolor, $textsize, $paddingvalue) {
-    color: $textcolor;
-    font-size: $textsize;
-    padding: $paddingvalue;
-}
-@mixin logospecs($fontsizevalue, $lineheightvalue, $textvalue, $positionvalue, $topvalue, $leftvalue, $zvalue) {
-    font-size: $fontsizevalue;
-    line-height: $lineheightvalue;
-    color: $textvalue;
-    position: $positionvalue;
-    top: $topvalue;
-    left: $leftvalue;
-    z-index: $zvalue;
-}
-@mixin backgroundurl ($Backgroundimageurl, $Backgroundsizevalue, $Backgroundrepeatvalue, $Backgroundpositionvalue){
-    background-image: $Backgroundimageurl;
-    background-size: $Backgroundsizevalue;
-    background-repeat: $Backgroundrepeatvalue;
-    background-position: $Backgroundpositionvalue;
-}
-@mixin menulabelbox ($backgroundcolor, $blockrotation, $blockpadding) {
-    display: inline-block;
-    background-color: $backgroundcolor;
-    transform: $blockrotation;
-    padding: $blockpadding;
-}
-@mixin websitegrid ($displayvalue, $gridtemplatecolumsvalue, $gapvalue) {
-    @if $displayvalue != none {
-        display: $displayvalue; // <- grid
-    }
-    grid-template-columns: $gridtemplatecolumsvalue;
-    @if $gapvalue != 0{
-        gap: $gapvalue;
-    }
-}
-@mixin labelbox ($backgroundcolor, $displayvalue, $transformvalue, $marginvalue) {
-    background-color: $backgroundcolor;
-    display: $displayvalue;
-    @if $transformvalue != none{
-        transform: $transformvalue;
-    }
-    @if $marginvalue != 0 {
-        margin: $marginvalue;
-    }
-    width: 80px;
-}
-@mixin labeltext ($fontsizevalue, $transformvalue) {
-    font-size: $fontsizevalue;
-    @if $transformvalue != none{
-        transform: $transformvalue;
-    }
-}
-@mixin normalizeul {
-    margin: 0;
-    padding: 0; 
-    list-style-type: none;
-}
+@import 'root';
+@import 'functions';
+@import 'mixins';
 
 body {
     background-color: var(--main-bg-color);
@@ -172,17 +55,15 @@ header {
             }
         }
 
-        &:not(:checked) + .navigation_container .menu_container .menu_button {
-            &:hover {
-                .burger_lines:nth-child(1){
-                    left: 2px;
-                }
-                .burger_lines:nth-child(2){
-                    left: -5px;
-                }
-                .burger_lines:nth-child(3){
-                    left: 5px;
-                }
+        &:not(:checked):hover + .navigation_container .menu_container .menu_button {
+            .burger_lines:nth-child(1){
+                left: 2px;
+            }
+            .burger_lines:nth-child(2){
+                left: -5px;
+            }
+            .burger_lines:nth-child(3){
+                left: 5px;
             }
         }
 

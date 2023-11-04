@@ -1,0 +1,3 @@
+@function remfunction($sizeinpx){
+    @return calc($sizeinpx / 16) * 1rem;
+}

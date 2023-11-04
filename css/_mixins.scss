@@ -1,0 +1,72 @@
+@mixin centertext($justifycontentvalue, $alignitemsvalue) {
+    display: flex;
+    @if $justifycontentvalue != none {
+        justify-content: $justifycontentvalue;
+    }
+    @if $alignitemsvalue != none{
+        align-items: $alignitemsvalue;
+    }
+}
+@mixin centralizer ($positionvalue) {
+    position: $positionvalue;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@mixin textspecs($textcolor, $textsize, $paddingvalue) {
+    color: $textcolor;
+    font-size: $textsize;
+    padding: $paddingvalue;
+}
+@mixin logospecs($fontsizevalue, $lineheightvalue, $textvalue, $positionvalue, $topvalue, $leftvalue, $zvalue) {
+    font-size: $fontsizevalue;
+    line-height: $lineheightvalue;
+    color: $textvalue;
+    position: $positionvalue;
+    top: $topvalue;
+    left: $leftvalue;
+    z-index: $zvalue;
+}
+@mixin backgroundurl ($Backgroundimageurl, $Backgroundsizevalue, $Backgroundrepeatvalue, $Backgroundpositionvalue){
+    background-image: $Backgroundimageurl;
+    background-size: $Backgroundsizevalue;
+    background-repeat: $Backgroundrepeatvalue;
+    background-position: $Backgroundpositionvalue;
+}
+@mixin menulabelbox ($backgroundcolor, $blockrotation, $blockpadding) {
+    display: inline-block;
+    background-color: $backgroundcolor;
+    transform: $blockrotation;
+    padding: $blockpadding;
+}
+@mixin websitegrid ($displayvalue, $gridtemplatecolumsvalue, $gapvalue) {
+    @if $displayvalue != none {
+        display: $displayvalue; // <- grid
+    }
+    grid-template-columns: $gridtemplatecolumsvalue;
+    @if $gapvalue != 0{
+        gap: $gapvalue;
+    }
+}
+@mixin labelbox ($backgroundcolor, $displayvalue, $transformvalue, $marginvalue) {
+    background-color: $backgroundcolor;
+    display: $displayvalue;
+    @if $transformvalue != none{
+        transform: $transformvalue;
+    }
+    @if $marginvalue != 0 {
+        margin: $marginvalue;
+    }
+    width: 80px;
+}
+@mixin labeltext ($fontsizevalue, $transformvalue) {
+    font-size: $fontsizevalue;
+    @if $transformvalue != none{
+        transform: $transformvalue;
+    }
+}
+@mixin normalizeul {
+    margin: 0;
+    padding: 0; 
+    list-style-type: none;
+}
