@@ -236,7 +236,7 @@ header {
     // ----------------2<-------------[ PAGE TWO ]------------------
 
     .page_two {
-        padding: 16px 0px 16px 0px;
+        padding: remfunction(16);
 
         .bottom_container {
             display: flex;
