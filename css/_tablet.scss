@@ -23,8 +23,8 @@ header {
     
     input {
         position:fixed;
-        height: var(--header-input-height-mobile);
-        width: var(--header-icon-width-mobile);
+        height: var(--header-input-height-tablet);
+        width: var(--header-icon-width-tablet);
         top: -.5rem;
         left: .75rem;
         z-index: var(--input-z-index);
@@ -83,7 +83,7 @@ header {
 
                 .burger_lines {
                     display: block;
-                    width: var(--header-icon-width-mobile);
+                    width: var(--header-icon-width-tablet);
                     height: 5px;
                     background-color: var(--header-burger-color);
                     border-radius: 6px;
@@ -98,7 +98,7 @@ header {
                 height: 100%;
                 top: remfunction(-3);
                 @include centertext(center, center);
-                font-size: var(--header-business-name-font-size-mobile);
+                font-size: var(--header-business-name-font-size-tablet);
                 text-transform: uppercase;
                 color: white;
             }
@@ -126,7 +126,7 @@ header {
                 flex-direction: column;
 
                 .list_content{
-                    font-size: var(--nav-font-size-mobile);
+                    font-size: var(--nav-font-size-tablet);
                     text-transform: uppercase;
                     color: var(--nav-text-color);
                     line-height: 2;
@@ -157,15 +157,16 @@ header {
 
         .top_container, .bottom_container {
             display: flex;
-            flex-direction: column;
+            height: 50vh;
         }
 
+        
         .top_container {
             background-color: var(--page-one-container-black);
 
             .logo_container{
-                min-height: 25vh;
-                width: 100vw;
+                width: 50vw;
+                height: 100%;
                 @include centertext(center, center);
 
                 .logo{
@@ -186,9 +187,11 @@ header {
             }
 
             .text_container {
-                @include textspecs(var(--text-color-green), var(--page-article-font-size-mobile), 16px);
+                @include textspecs(var(--text-color-green), var(--page-article-font-size-tablet), 16px);
                 @include centertext(center, center);
                 text-align: justify;
+                width: 50vw;
+                height: 100%;
             } 
         }
 
@@ -197,22 +200,29 @@ header {
             .icon_container {
                 background-color: var(--page-one-container-black);
                 @include backgroundurl(url(../assets/photos/mae-mu-hugb85v0J04-unsplash.jpg), contain, no-repeat, center center);
-                height: var(--page-image-height-mobile);
+                height: var(--page-image-height-tablet);
                 position: relative;
+                width: 50vw;
+                height: 100%;
 
                 .arrow {
                     transform: rotate(90deg);
                     position: absolute;
-                    bottom: var(--page-arrow-facing-down-bottom-mobile);
-                    left: var(--page-arrow-facing-down-left-mobile);
+                    bottom: var(--page-arrow-facing-down-bottom-tablet);
+                    left: var(--page-arrow-facing-down-left-tablet);
                     @include animationmixin(arrowanimation, 2s, infinite);
                 }
             }
 
             .text_container {
                 background-color: var(--page-one-container-white);
-                @include textspecs(var(--text-color-rich-lilac), var(--page-article-font-size-mobile), 16px);
+                @include textspecs(var(--text-color-rich-lilac), var(--page-article-font-size-tablet), 16px);
                 text-align: justify;
+                width: 50vw;
+                height: 100%;
+                margin: 0 0 0 remfunction(16);
+                @include centertext(center, none);
+                flex-direction: column;
 
                 .explore_menu_section{
                     text-transform: uppercase;
@@ -223,8 +233,8 @@ header {
                     }
                     img {
                         position: relative;
-                        bottom: var(--page-arrow-facing-right-bottom-mobile);
-                        left: var(--page-arrow-facing-right-left-mobile);
+                        bottom: var(--page-arrow-facing-right-bottom-tablet);
+                        left: var(--page-arrow-facing-right-left-tablet);
                         display: inline-block;
                         @include animationmixin(arrowfacingrightanimation, 1.7s, infinite);
                     }
@@ -285,7 +295,7 @@ header {
                     }
 
                     .menu_list_item_name {
-                        font-size: var(--menu-list-name-price-font-size-mobile);
+                        font-size: var(--menu-list-name-price-font-size-tablet);
                         text-transform: uppercase;
                         @include centertext(none, center);
                         
@@ -294,7 +304,7 @@ header {
                             font-family: var(--secondary-font);
 
                             .label_text_content_new {
-                                @include labeltext(var(--menu-label-font-size-mobile), rotate(354deg));
+                                @include labeltext(var(--menu-label-font-size-tablet), rotate(354deg));
                                 @include centertext(center, none);
                                 width: 100%;  
                            }
@@ -305,7 +315,7 @@ header {
                             font-family: var(--secondary-font);
 
                             .label_text_content_vegan {
-                                @include labeltext(var(--menu-label-font-size-mobile), rotate(3deg));
+                                @include labeltext(var(--menu-label-font-size-tablet), rotate(3deg));
                                 @include centertext(center, none);
                                 width: 100%;   
                            }
@@ -316,7 +326,7 @@ header {
                             font-family: var(--secondary-font);
 
                             .label_text_content_popular {
-                                @include labeltext(var(--menu-label-font-size-mobile), none);
+                                @include labeltext(var(--menu-label-font-size-tablet), none);
                                 @include centertext(center, none);
                                 width: 100%;    
                            }
@@ -325,12 +335,12 @@ header {
 
                     .menu_list_item_desc {
                         font-family: var(--secondary-font);
-                        font-size: var(--menu-list-desc-font-size-mobile);
+                        font-size: var(--menu-list-desc-font-size-tablet);
                         @include centertext(none, center);
                     }
 
                     .menu_list_item_price {
-                        font-size: var(--menu-list-name-price-font-size-mobile);
+                        font-size: var(--menu-list-name-price-font-size-tablet);
                         justify-content: right;
                     }
                 }
@@ -378,7 +388,7 @@ footer {
                     li{ 
                         
                         .head_title {
-                            font-size: var(--footer-title-font-size-mobile);
+                            font-size: var(--footer-title-font-size-tablet);
                             font-weight: normal;
                             text-transform: uppercase;
                             width: 100%;
@@ -389,7 +399,7 @@ footer {
                             display: flex;
                             flex-direction: column;
                             width: 100%;
-                            font-size: var(--footer-under-text-font-size-mobile);
+                            font-size: var(--footer-under-text-font-size-tablet);
                             text-transform: uppercase;
                             margin: remfunction(15) 0 remfunction(5) 0;
                         }
@@ -418,7 +428,7 @@ footer {
                             width: 100%;
                             border: none;
                             text-transform: uppercase;
-                            font-size: var(--footer-under-text-font-size-mobile);
+                            font-size: var(--footer-under-text-font-size-tablet);
                         }
 
                         .cancel_button {
@@ -446,14 +456,14 @@ footer {
                 .background_image {
                     position: absolute;
                     width: 100%;
-                    height: var(--footer-contact-info-picture-size-mobile);
+                    height: var(--footer-contact-info-picture-size-tablet);
                     @include backgroundurl(url('../assets/photos/ronan-kruithof-PCE0T5i4pDI-unsplash.jpg'), cover, no-repeat, center center);
                     filter: blur(remfunction(3));
                 }
 
                 .info {
                     width: 100%;
-                    height: var(--footer-contact-info-picture-size-mobile);
+                    height: var(--footer-contact-info-picture-size-tablet);
                     @include centertext(center, center);
                     
                     ul {
@@ -468,13 +478,13 @@ footer {
                             @include centertext(none, center);
 
                             .info_icon {
-                                font-size: var(--footer-contact-info-icons-size-mobile);
+                                font-size: var(--footer-contact-info-icons-size-tablet);
                                 display: inline-block;
                                 margin: 0 10px 0 0;
                             }
 
                             .text {
-                                font-size: var(--footer-contact-info-text-font-size-mobile);
+                                font-size: var(--footer-contact-info-text-font-size-tablet);
                             }
                         }
                     }
@@ -502,7 +512,7 @@ footer {
 
     .content {
         font-family: var(--secondary-font);
-        font-size: var(--cookie-content-size-mobile);
+        font-size: var(--cookie-content-size-tablet);
         color: var(--cookie-content-color);
     }
     .cookie_buttons {
@@ -515,7 +525,7 @@ footer {
                 border: none;
                 border-radius: remfunction(5);
                 text-transform: uppercase;
-                font-size: var(--cookie-button-text-size-mobile);      
+                font-size: var(--cookie-button-text-size-tablet);      
                 user-select: none;      
             }
 

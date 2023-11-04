@@ -89,23 +89,63 @@
 
 
 
-    // ----------------3<--------------| MOBILE |------------------
+    // ----------------4<--------------| TABLET |------------------
 
     // ----------------> [ Header ] <---[Mobile]-------------------
-    --header-input-height: calc(100vh/12);
-    --header-icon-width: 30px;
+    --header-input-height-tablet: calc(100vh/12);
+    --header-icon-width-tablet: 30px;
+    --header-business-name-font-size-tablet: 2rem;
+
+    // ------------> [ Navigation ] <--[Desktop]-------------------
+    --nav-font-size-tablet: 3rem;
+    
+    // --------------> [ Page one ] <--[Desktop]-------------------
+    --page-article-font-size-tablet: 1.59rem;
+    --page-image-height-tablet: 43vh;
+    --page-arrow-facing-down-bottom-tablet: 5px;
+    --page-arrow-facing-down-left-tablet: 11px;
+    --page-arrow-facing-right-bottom-tablet: -6px;
+    --page-arrow-facing-right-left-tablet: 0px;
+    
+    // ------------> [ Menu Labal ] <--[Desktop]-------------------
+    --menu-list-name-price-font-size-tablet: 2rem;
+    --menu-list-desc-font-size-tablet: 1.5rem; 
+    --menu-label-font-size-tablet: 1rem;
+
+    // ----------------> [ Footer ] <--[Desktop]-------------------
+    --footer-title-font-size-tablet: 2.5rem;
+    --footer-under-text-font-size-tablet: 1.8rem;
+    --footer-contact-info-picture-size-tablet: 40vh;
+    --footer-contact-info-icons-size-tablet: 2.5rem;
+    --footer-contact-info-text-font-size-tablet: 1.6rem;
+
+    // ----------------> [ Cookie ] <--[Desktop]-------------------
+    --cookie-content-size-tablet: 1.5rem;
+    --cookie-button-text-size-tablet: 1.5rem;
+
+
+
+
+
+
+
+    // ----------------4<--------------| MOBILE |------------------
+
+    // ----------------> [ Header ] <---[Mobile]-------------------
+    --header-input-height-mobile: calc(100vh/12);
+    --header-icon-width-mobile: 30px;
     --header-business-name-font-size-mobile: 2rem;
 
     // ------------> [ Navigation ] <--[Desktop]-------------------
     --nav-font-size-mobile: 3rem;
     
     // --------------> [ Page one ] <--[Desktop]-------------------
-    --page-article-font-size-mobile: 1.59rem;
-    --page-image-height: 43vh;
-    --page-arrow-facing-down-bottom: 5px;
-    --page-arrow-facing-down-left: 11px;
-    --page-arrow-facing-right-bottom: -6px;
-    --page-arrow-facing-right-left: 0px;
+    --page-article-font-size-mobile: 1.6rem;
+    --page-image-height-mobile: 43vh;
+    --page-arrow-facing-down-bottom-mobile: 5px;
+    --page-arrow-facing-down-left-mobile: 11px;
+    --page-arrow-facing-right-bottom-mobile: -6px;
+    --page-arrow-facing-right-left-mobile: 0px;
     
     // ------------> [ Menu Labal ] <--[Desktop]-------------------
     --menu-list-name-price-font-size-mobile: 2rem;

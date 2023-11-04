@@ -2,24 +2,24 @@
 
 @keyframes arrowanimation {
     0%   {
-        bottom: var(--page-arrow-facing-down-bottom);
+        bottom: var(--page-arrow-facing-down-bottom-mobile);
     }
     50%  {
-        bottom: calc(var(--page-arrow-facing-down-bottom) - -15px);
+        bottom: calc(var(--page-arrow-facing-down-bottom-mobile) - -15px);
     }
     100% {
-        bottom: var(--page-arrow-facing-down-bottom);
+        bottom: var(--page-arrow-facing-down-bottom-mobile);
     }
 }
 
 @keyframes arrowfacingrightanimation {
     0%   {
-        left: var(--page-arrow-facing-right-left);
+        left: var(--page-arrow-facing-right-left-mobile);
     }
     50%  {
-        left: calc(var(--page-arrow-facing-right-left) + +6px);
+        left: calc(var(--page-arrow-facing-right-left-mobile) + +6px);
     }
     100% {
-        left: var(--page-arrow-facing-right-left);
+        left: var(--page-arrow-facing-right-left-mobile);
     }
 }
