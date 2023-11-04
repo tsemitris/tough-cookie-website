@@ -164,22 +164,23 @@ header {
             background-color: var(--page-one-container-black);
 
             .logo_container{
-                height: 25vh;
+                min-height: 25vh;
+                width: 100vw;
+                @include centertext(center, center);
 
                 .logo{
                     text-transform: uppercase;
-                    text-align: right;
-                    padding: 0px 45px 0px 0px;  
-                    @include centralizer(relative);
+                    text-align: center;
+                    
 
                     .drizzle_text {
-                        @include logospecs(5vh, 1.7, var(--text-color-rich-lilac), absolute, -4.1rem, 11.3rem, var(--main-content-z-index))
+                        @include logospecs(5vh, 1.6, var(--text-color-rich-lilac), relative, 0, remfunction(51), var(--main-content-z-index));
                     }
                     .tahini_text {
-                        @include logospecs(6rem, 0.45, var(--text-color-green), absolute, 0, 5rem, var(--main-content-z-index))
+                        @include logospecs(6rem, 0.45, var(--text-color-green), relative, 0, 0, var(--main-content-z-index));
                     }
                     .chickpeas_text {
-                        @include logospecs(2.25rem, 1.1, var(--text-color-yellow), absolute, 2.8rem, 5.9rem, var(--logo-extra-z-index))
+                        @include logospecs(2.25rem, 1.1, var(--text-color-yellow), relative, 0, remfunction(-30), var(--logo-extra-z-index))
                     }
                 }
             }
