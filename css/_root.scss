@@ -1,42 +1,127 @@
 :root {
+    // ----------------1<-------------| GENERAL |------------------
+
+    // ------------------> [ Font ] <--[General]-------------------
     --main-font: 'Jockey One', 'Roboto Condensed', sans-serif;
     --secondary-font: 'Roboto Condensed', serif;
-    --cookie-z-index: 5;
+
+    // ---------------> [ Z-index ] <--[General]-------------------
+    
+    --cookie-z-index: 8;
+    --input-z-index: 7;
     --header-z-index: 4;
     --nav-z-index: 3;
     --main-content-z-index: 2;
     --logo-extra-z-index: 1;
+
+    // ------------------> [ Main ] <--[General]-------------------
     --main-bg-color: #FFF136;
+
+    // ----------------> [ Header ] <--[General]-------------------
     --header-container-color: black;
-    --header-business-name-font-size: 5vh;
     --header-burger-color: #FFF136;
+
+    // ------------> [ Navigation ] <--[General]-------------------
     --nav-background-color: #b46be2;
-    --nav-font-size: 9vh;
     --nav-text-color: white;
+
+    // --------------> [ Page one ] <--[General]-------------------
     --page-one-container-black: black;
     --page-one-container-white: white;
-    --page-article-font-size: 2.5rem;
+
+    // ------------> [ Text color ] <--[General]-------------------
     --text-color-green: #00ff38;
     --text-color-rich-lilac : #b46be2;
     --text-color-yellow: #FFF136;
-    --menu-list-name-price-font-size: 3rem;
-    --menu-list-desc-font-size: 1.5rem; 
-    --menu-label-font-size: 1rem;
+
+    // ------------> [ Menu Labal ] <--[General]-------------------
     --menu-label-color-green: #00ff38;
     --menu-label-color-rich-lilac : #b46be2;
     --menu-label-color-yellow: #FFF136;
+
+    // ----------------> [ Footer ] <--[General]-------------------
     --footer-color-green: #00ff38;
-    --footer-title-font-size: 4.5rem;
-    --footer-under-text-font-size: 2.3rem;
     --footer-cancel-button-color: #b46be2;
     --footer-request-button-color: #FFF136;
-    --footer-contact-info-icons-size: 4.5vw;
-    --footer-contact-info-text-font-size: 2.2vw;
     --footer-contact-info-text-color: #3cc1ee;
+
+    // ----------------> [ Cookie ] <--[General]-------------------
     --cookie-container-color: #b46be2;
-    --cookie-content-size: 1.5rem;
     --cookie-content-color: white;
-    --cookie-button-text-size: 2.3rem;
     --cookie-decline-color: #00ff38;
     --cookie-accept-color: #FFF136;
+
+
+
+
+
+
+
+    // ----------------2<-------------| DESKTOP |------------------
+
+    // ----------------> [ Header ] <--[Desktop]-------------------
+    --header-business-name-font-size: 5vh;
+
+    // ------------> [ Navigation ] <--[Desktop]-------------------
+    --nav-font-size: 9vh;
+    
+    // --------------> [ Page one ] <--[Desktop]-------------------
+    --page-article-font-size: 2.5rem;
+    
+    // ------------> [ Menu Labal ] <--[Desktop]-------------------
+    --menu-list-name-price-font-size: 3rem;
+    --menu-list-desc-font-size: 1.5rem; 
+    --menu-label-font-size: 1rem;
+
+    // ----------------> [ Footer ] <--[Desktop]-------------------
+    --footer-title-font-size: 4.5rem;
+    --footer-under-text-font-size: 2.3rem;
+    --footer-contact-info-icons-size: 4.5vw;
+    --footer-contact-info-text-font-size: 2.2vw;
+
+    // ----------------> [ Cookie ] <--[Desktop]-------------------
+    --cookie-content-size: 1.5rem;
+    --cookie-button-text-size: 2.3rem;
+
+
+
+
+
+
+
+    // ----------------3<--------------| MOBILE |------------------
+
+    // ----------------> [ Header ] <---[Mobile]-------------------
+    --header-input-height: calc(100vh/12);
+    --header-icon-width: 30px;
+    --header-business-name-font-size-mobile: 2rem;
+
+    // ------------> [ Navigation ] <--[Desktop]-------------------
+    --nav-font-size-mobile: 3rem;
+    
+    // --------------> [ Page one ] <--[Desktop]-------------------
+    --page-article-font-size-mobile: 1.59rem;
+    --page-image-height: 43vh;
+    --page-arrow-facing-down-bottom: 5px;
+    --page-arrow-facing-down-left: 11px;
+    --page-arrow-facing-right-bottom: -6px;
+    --page-arrow-facing-right-left: 0px;
+    
+    // ------------> [ Menu Labal ] <--[Desktop]-------------------
+    --menu-list-name-price-font-size-mobile: 2rem;
+    --menu-list-desc-font-size-mobile: 1.5rem; 
+    --menu-label-font-size-mobile: 1rem;
+
+    // ----------------> [ Footer ] <--[Desktop]-------------------
+    --footer-title-font-size-mobile: 2.5rem;
+    --footer-under-text-font-size-mobile: 1.8rem;
+    --footer-contact-info-picture-size-mobile: 40vh;
+    --footer-contact-info-icons-size-mobile: 2.5rem;
+    --footer-contact-info-text-font-size-mobile: 1.6rem;
+
+    // ----------------> [ Cookie ] <--[Desktop]-------------------
+    --cookie-content-size-mobile: 1.5rem;
+    --cookie-button-text-size-mobile: 1.5rem;
+
+
 }

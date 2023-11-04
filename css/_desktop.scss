@@ -26,7 +26,7 @@ header {
         height: 3.5vh;
         left: -0.2vw;
         top: 6vh;
-        z-index: 7;
+        z-index: var(--input-z-index);
         opacity: 0;
         cursor: pointer;
 
@@ -75,7 +75,7 @@ header {
 
     .navigation_container {
         
-        .menu_container{
+        .menu_container {
             background-color: var(--header-container-color);
             width: calc(100vw/13);
             height: 100vh;
@@ -181,7 +181,6 @@ header {
         }
 
         .top_container {
-            min-height: 50vh;
             background-color: var(--page-one-container-black);
 
             .logo_container {
@@ -214,15 +213,11 @@ header {
         }
 
         .bottom_container {
-            min-height: 50vh;
 
             .icon_container {
                 background-color: var(--page-one-container-black);
                 grid-column: span 5;
-                background-image: url(../assets/photos/mae-mu-hugb85v0J04-unsplash.jpg);
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: center center;
+                @include backgroundurl(url(../assets/photos/mae-mu-hugb85v0J04-unsplash.jpg), contain, no-repeat, center center);
                 position: relative;
                 
                 &:hover {
@@ -256,6 +251,7 @@ header {
                     }
                     img {
                         display: inline-block;
+                        top: 0;
                     }
                 }
             }  
@@ -394,7 +390,7 @@ footer {
 
                 ul {
                     @include normalizeul;
-                    margin: 0 0 0 16px;
+                    margin: 0 0 0 remfunction(16);
                     padding: 0 remfunction(51) 0 0;
 
                     li {
@@ -427,10 +423,7 @@ footer {
 
                         .dropdown_icon {
                             appearance: none;
-                            background-image: url(../assets/icons/dropdown_icon.svg);
-                            background-repeat: no-repeat;
-                            background-position: right 1rem center;
-                            background-size: 1.2em;
+                            @include backgroundurl(url(../assets/icons/dropdown_icon.svg), 1.2em, no-repeat, right 1rem center);
                         }
 
                         .cancel_button, .request_button {
@@ -471,7 +464,7 @@ footer {
                     width: 100%;
                     height: 100%;
                     @include backgroundurl(url('../assets/photos/ronan-kruithof-PCE0T5i4pDI-unsplash.jpg'), cover, no-repeat, center center);
-                    filter: blur(3px);
+                    filter: blur(remfunction(3));
                 }
 
                 .info {
@@ -486,7 +479,7 @@ footer {
 
                         li {
                             color: var(--footer-contact-info-text-color); 
-                            filter: drop-shadow(-4px -1px 0px #000000);
+                            filter: drop-shadow(remfunction(-4) remfunction(-1) remfunction(0) #000000);
                             display: inline-block;
                             width: 100%;
                             margin: 0 0 29px 0;

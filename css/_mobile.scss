@@ -1,15 +1,530 @@
 @import 'root';
 @import 'functions';
 @import 'mixins';
+@import 'animations';
 
-body{
+body {
     background-color: var(--main-bg-color);
+    font-family: var(--main-font);  
 }
 
-header{
-    display: flex;
-    justify-content: space-between;
-    background-color: black;
-    color: white;
+main {
+    min-height: 100vh;
+    padding-top: remfunction(75); //Same value -10 at menu_container height
 }
 
+/*
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+- HEADER AND NAV +-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
+
+header {
+    
+    input {
+        position:fixed;
+        height: var(--header-input-height);
+        width: var(--header-icon-width);
+        top: -.5rem;
+        left: .75rem;
+        z-index: var(--input-z-index);
+        opacity: 0;
+
+        &:not(:checked) +.navigation_container .menu_container .menu_button .burger_lines{
+            position: relative;
+            transition: all 0.5s ease-in-out;
+
+            &:nth-child(3){
+                top: 0;
+            }
+        }
+
+        &:checked +.navigation_container .menu_container .menu_button .burger_lines{
+            position: relative;
+            transition: all 0.5s ease-in-out;
+
+            &:nth-child(1){
+                opacity: 0;
+            }
+            &:nth-child(2){
+                transform: rotate(45deg);
+            }
+            &:nth-child(3){
+                transform: rotate(-45deg);
+                top: -8px;
+            }
+        }
+
+        &:checked + .navigation_container .nav_list_container{
+            visibility: visible;
+            opacity: 1;
+            left: 0rem;
+        }
+    }
+
+    .navigation_container {
+
+        .menu_container {
+            background-color: var(--header-container-color);
+            position: fixed;
+            width: 100vw;
+            height: remfunction(65); //Same value +10 at main padding
+            padding: 0 remfunction(10) 0 remfunction(10);
+            z-index: var(--header-z-index);
+            
+            
+            .menu_button {
+                @include centertext(center, none);
+                flex-direction: column;
+                height: 100%;
+                background: none;
+                border: none;
+                
+
+                .burger_lines {
+                    display: block;
+                    width: var(--header-icon-width);
+                    height: 5px;
+                    background-color: var(--header-burger-color);
+                    border-radius: 6px;
+                    margin-bottom: 4px;
+                    position: relative;
+                }
+            }
+
+            h1 {
+                position: absolute;
+                width: 100vw;
+                height: 100%;
+                top: remfunction(-3);
+                @include centertext(center, center);
+                font-size: var(--header-business-name-font-size-mobile);
+                text-transform: uppercase;
+                color: white;
+            }
+        }
+    }
+
+    .nav_list_container {
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--nav-background-color);
+        position: fixed;
+        z-index: var(--nav-z-index);
+        visibility: hidden;
+        left: -50rem;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+
+        .grid_container {
+            @include centertext(center, center);
+            height: 100vh; 
+
+            ul{
+                @include normalizeul;
+                @include centertext(center, center);
+                flex-direction: column;
+
+                .list_content{
+                    font-size: var(--nav-font-size-mobile);
+                    text-transform: uppercase;
+                    color: var(--nav-text-color);
+                    line-height: 2;
+
+                    a{  
+                        text-decoration: none;
+                    }
+
+                    
+                }
+            }
+        }
+    }
+    
+}
+
+/*
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+- PAGE CONTAINER +-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
+
+.page_container {
+
+    // ----------------1<-------------[ PAGE ONE ]------------------
+
+    .page_one {
+
+        .top_container, .bottom_container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top_container {
+            background-color: var(--page-one-container-black);
+
+            .logo_container{
+                height: 25vh;
+
+                .logo{
+                    text-transform: uppercase;
+                    text-align: right;
+                    padding: 0px 45px 0px 0px;  
+                    @include centralizer(relative);
+
+                    .drizzle_text {
+                        @include logospecs(5vh, 1.7, var(--text-color-rich-lilac), absolute, -4.1rem, 11.3rem, var(--main-content-z-index))
+                    }
+                    .tahini_text {
+                        @include logospecs(6rem, 0.45, var(--text-color-green), absolute, 0, 5rem, var(--main-content-z-index))
+                    }
+                    .chickpeas_text {
+                        @include logospecs(2.25rem, 1.1, var(--text-color-yellow), absolute, 2.8rem, 5.9rem, var(--logo-extra-z-index))
+                    }
+                }
+            }
+
+            .text_container {
+                @include textspecs(var(--text-color-green), var(--page-article-font-size-mobile), 16px);
+                @include centertext(center, center);
+                text-align: justify;
+            } 
+        }
+
+        .bottom_container {
+
+            .icon_container {
+                background-color: var(--page-one-container-black);
+                @include backgroundurl(url(../assets/photos/mae-mu-hugb85v0J04-unsplash.jpg), contain, no-repeat, center center);
+                height: var(--page-image-height);
+                position: relative;
+
+                .arrow {
+                    transform: rotate(90deg);
+                    position: absolute;
+                    bottom: var(--page-arrow-facing-down-bottom);
+                    left: var(--page-arrow-facing-down-left);
+                    @include animationmixin(arrowanimation, 2s, infinite);
+                }
+            }
+
+            .text_container {
+                background-color: var(--page-one-container-white);
+                @include textspecs(var(--text-color-rich-lilac), var(--page-article-font-size-mobile), 16px);
+                text-align: justify;
+
+                .explore_menu_section{
+                    text-transform: uppercase;
+                    
+                    a {
+                        color: black;
+                        text-decoration: none;
+                    }
+                    img {
+                        position: relative;
+                        bottom: -6px;
+                        left: 0;
+                        display: inline-block;
+                        @include animationmixin(arrowfacingrightanimation, 1.7s, infinite);
+                    }
+                }
+            } 
+        }
+    }
+
+    // ----------------2<-------------[ PAGE TWO ]------------------
+
+    .page_two {
+        padding: 16px 0px 16px 0px;
+
+        .bottom_container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top_container {
+            height: 50vh;
+            margin-bottom: 16px;
+            display: flex;
+
+            .first_menu_photo, .second_menu_photo, .third_menu_photo{
+                width: 100%;
+                height: 100%;
+                
+            }
+
+            .first_menu_photo {
+                @include backgroundurl(url(../assets/photos/edgar-castrejon-1SPu0KT-Ejg-unsplash.jpg), cover, no-repeat, center center);
+            }
+            .second_menu_photo {
+                @include backgroundurl(url(../assets/photos/kao-rodriguez-IeTzHiuepmU-unsplash.jpg), cover, no-repeat, center center);
+            }
+            .third_menu_photo {
+                @include backgroundurl(url(../assets/photos/mor-shani-kQloRmVQYIs-unsplash.jpg), cover, no-repeat, center center);
+            }
+        }
+
+        .bottom_container {
+            min-height: 50vh;
+
+            .menu_list {
+                margin: 0;
+                padding: 0; 
+                list-style-type: none;
+
+                .menu_list_block {
+                    padding: 8px;
+                    background-color: white;
+                    border-bottom: remfunction(3) solid black;
+                    border-top: remfunction(3) solid black;
+                    margin: 0 0 10px 0;
+
+                    .menu_list_item_name, .menu_list_item_desc, .menu_list_item_price{
+                        display: flex;
+                    }
+
+                    .menu_list_item_name {
+                        font-size: var(--menu-list-name-price-font-size-mobile);
+                        text-transform: uppercase;
+                        @include centertext(none, center);
+                        
+                        .label_box_content_new {
+                            @include labelbox(var(--menu-label-color-rich-lilac), inline-flex, rotate(4deg), 0 0 0 10px);
+                            font-family: var(--secondary-font);
+
+                            .label_text_content_new {
+                                @include labeltext(var(--menu-label-font-size-mobile), rotate(354deg));
+                                @include centertext(center, none);
+                                width: 100%;  
+                           }
+                        }
+
+                        .label_box_content_vegan {
+                            @include labelbox(var(--menu-label-color-green), inline-flex, rotate(355deg), 0 0 0 10px);
+                            font-family: var(--secondary-font);
+
+                            .label_text_content_vegan {
+                                @include labeltext(var(--menu-label-font-size-mobile), rotate(3deg));
+                                @include centertext(center, none);
+                                width: 100%;   
+                           }
+                        }
+
+                        .label_box_content_popular {
+                            @include labelbox(var(--menu-label-color-yellow), inline-flex, none, 0 0 0 10px);
+                            font-family: var(--secondary-font);
+
+                            .label_text_content_popular {
+                                @include labeltext(var(--menu-label-font-size-mobile), none);
+                                @include centertext(center, none);
+                                width: 100%;    
+                           }
+                        }
+                    }
+
+                    .menu_list_item_desc {
+                        font-family: var(--secondary-font);
+                        font-size: var(--menu-list-desc-font-size-mobile);
+                        @include centertext(none, center);
+                    }
+
+                    .menu_list_item_price {
+                        font-size: var(--menu-list-name-price-font-size-mobile);
+                        justify-content: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+- FOOTER +-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
+
+footer {
+    min-height: 100vh;
+    background-color: white;
+    padding: remfunction(16) 0 0 0;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--footer-color-green);
+
+        // ----------------1<-------------[ TOP CONTAINER ]------------------
+        .left_container {
+            width: 100vw;
+            min-height: 50vh;
+            padding: 16px 0 16px 0;
+
+            .book_table_container {
+                width: 100%;
+                height: 100%;
+                padding: remfunction(5);
+
+                ul {
+                    @include normalizeul;
+                    
+                    // This class is for button Cancel and Request!
+                    .flex_button{
+                        display: flex;
+                        margin: remfunction(16) 0 0 0;
+                    }
+
+                    li{ 
+                        
+                        .head_title {
+                            font-size: var(--footer-title-font-size-mobile);
+                            font-weight: normal;
+                            text-transform: uppercase;
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        .title_container {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            font-size: var(--footer-under-text-font-size-mobile);
+                            text-transform: uppercase;
+                            margin: remfunction(15) 0 remfunction(5) 0;
+                        }
+
+                        .input_container {
+                            width: 100%;
+                            height: remfunction(40);
+                            border: none;
+                            padding: 0 remfunction(16) 0 remfunction(16);
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+
+                        .dropdown_icon {
+                            appearance: none;
+                            @include backgroundurl(url(../assets/icons/dropdown_icon.svg), 1.2em, no-repeat, right 1rem center);
+                        }
+
+                        
+
+                        .cancel_button, .request_button {
+                            display: flex;
+                            justify-content: center;
+                            width: 100%;
+                            border: none;
+                            text-transform: uppercase;
+                            font-size: var(--footer-under-text-font-size-mobile);
+                        }
+
+                        .cancel_button {
+                            background-color: var(--footer-cancel-button-color);
+                            margin: 0 16px 0 0;
+                        }
+                        .request_button {
+                            background-color: var(--footer-request-button-color);
+                        }
+                    }
+                }
+            }
+        }
+
+        // ----------------2<-----------[ BOTTOM CONTAINER ]------------------
+        .right_container {
+            width: 100vw;
+            min-height: 30vh;
+            
+            .contact_info {
+                // width: 100%;
+                // height: 100%;
+                position: relative;
+
+                .background_image {
+                    position: absolute;
+                    width: 100%;
+                    height: var(--footer-contact-info-picture-size-mobile);
+                    @include backgroundurl(url('../assets/photos/ronan-kruithof-PCE0T5i4pDI-unsplash.jpg'), cover, no-repeat, center center);
+                    filter: blur(remfunction(3));
+                }
+
+                .info {
+                    width: 100%;
+                    height: var(--footer-contact-info-picture-size-mobile);
+                    @include centertext(center, center);
+                    
+                    ul {
+                        @include normalizeul;
+
+                        li {
+                            color: var(--footer-contact-info-text-color); 
+                            filter: drop-shadow(remfunction(-4) remfunction(-1) remfunction(0) #000000);
+                            display: inline-block;
+                            width: 100%;
+                            margin: 0 0 29px 0;
+                            @include centertext(none, center);
+
+                            .info_icon {
+                                font-size: var(--footer-contact-info-icons-size-mobile);
+                                display: inline-block;
+                                margin: 0 10px 0 0;
+                            }
+
+                            .text {
+                                font-size: var(--footer-contact-info-text-font-size-mobile);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++-+-+-+-+-+-+-+-+-+-+-+-+  COOKIE -+-+-+-+-+-+-+-+-+-+-+-+--+
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
+
+.cookie_container {
+    width: 100vw;
+    min-height: 5vh;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cookie-container-color);
+    position: fixed;
+    z-index: var(--cookie-z-index);
+    padding: remfunction(16);
+
+    .content {
+        font-family: var(--secondary-font);
+        font-size: var(--cookie-content-size-mobile);
+        color: var(--cookie-content-color);
+    }
+    .cookie_buttons {
+        margin: remfunction(10) 0 0 0;
+        display: flex;
+
+        button{
+            &:nth-child(1), &:nth-child(2){
+                width: 100%;
+                border: none;
+                border-radius: remfunction(5);
+                text-transform: uppercase;
+                font-size: var(--cookie-button-text-size-mobile);      
+                user-select: none;      
+            }
+
+            &:nth-child(1) {
+                background-color: var(--cookie-decline-color);
+                margin: 0 remfunction(10) 0 0;
+            }
+            &:nth-child(2) {
+                background-color: var(--cookie-accept-color);
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@import 'root';
+
+@keyframes arrowanimation {
+    0%   {
+        bottom: var(--page-arrow-facing-down-bottom);
+    }
+    50%  {
+        bottom: calc(var(--page-arrow-facing-down-bottom) - -15px);
+    }
+    100% {
+        bottom: var(--page-arrow-facing-down-bottom);
+    }
+}
+
+@keyframes arrowfacingrightanimation {
+    0%   {
+        left: var(--page-arrow-facing-right-left);
+    }
+    50%  {
+        left: calc(var(--page-arrow-facing-right-left) + +6px);
+    }
+    100% {
+        left: var(--page-arrow-facing-right-left);
+    }
+}

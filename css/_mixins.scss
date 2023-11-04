@@ -70,3 +70,8 @@
     padding: 0; 
     list-style-type: none;
 }
+@mixin animationmixin ($animationname, $animationduration, $animationiterationcount) {
+    animation-name: $animationname;
+    animation-duration: $animationduration;
+    animation-iteration-count: $animationiterationcount;
+}
