@@ -5,7 +5,6 @@
     👨🏻‍🎓 Front End Developer student at 
     <a 
         href="https://medieinstitutet.se/"
-        target="_blank"
         style=
         "
             color: #A8A8A8;
@@ -19,7 +18,7 @@
 ## 📖 About the project
 
 <p style="text-align: justify;">
-This particular assignment focuses on the creation of a responsive web page through <a href="https://github.com/tsemitris/tough-cookie-website/tree/main/assets/design" target="_blank">four photos</a> that I received from the agency's client. The briefing and photos that I got were just for Desktop, which allowed me to decide for myself how the page would look on tablets and mobiles.
+This particular assignment focuses on the creation of a responsive web page through <a href="https://github.com/tsemitris/tough-cookie-website/tree/main/assets/design">four photos</a> that I received from the agency's client. The briefing and photos that I got were just for Desktop, which allowed me to decide for myself how the page would look on tablets and mobiles.
 </p>
 
 <details>
