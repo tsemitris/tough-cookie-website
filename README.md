@@ -1,7 +1,7 @@
 <a name="read_me_top"></a>
 ![header](https://capsule-render.vercel.app/api?type=waving&color=E6CEA0&height=300&section=header&text=Tough%20cookie&fontColor=FFFFFF&fontSize=100&animation=fadeIn&fontAlignY=38&desc=A%20school%20assignment!&descAlignY=53&descAlign=75)
 
-<p style="text-align: center;">
+<p align="center">
     👨🏻‍🎓 Front End Developer student at 
     <a 
         href="https://medieinstitutet.se/"
@@ -23,28 +23,21 @@ This particular assignment focuses on the creation of a responsive web page thro
 
 <details>
     <summary>More info</summary>
-    <p style=
-        "
-        box-sizing: border-box;
-        padding:.3rem 1.1rem .3rem 1.1rem;
-        background-color: #3d3d3d;
-        border-radius: .2rem;
-        "
-    > 
-        The following was said at the briefing:
-        <br>- Website will use only <i>HTML and CSS/SCSS</i>, no need of JavaScript.
-        <br>- Website must be <i>responsive</i> in all devices [ desktop / tablet / mobile ]
-        <br>- Website must be one-page.
-        <br>- The color that will be used is: <i>Green 100%, 0%, 78%, 0% | Yellow 0%, 5%, 79%, 0% | Cancel-button in the formular 263°, 100%, 73%</i>
-        <br>- The fonts must be: <i>Jockey One and Roboto Condensed.</i>
-        <br>- When the pointer is hovering over the lettuce image, the arrow will move down a bit in a snappy way. Not too fast, not too slow.
-        <br>- A dynamic heading effect on "Tahini, chickpeas, drizzle", one word over another.
-        <br>- A slight sideways animation when hovering over the hamburger menu.
-        <br>- When the menu is open, the hamburger should turn into a closing icon: "X".
-        <br>- When clicking on "Explore menu", the food-page will appear
-        <br>- You don't have to be able to close the cookie-bar.
-        <br>- You will able to close is the menu on the closing icon, not when pressing a menu link.
-    </p>
+    The following was said at the briefing:
+        <ul>
+            <li>Website will use only <i>HTML and CSS/SCSS</i>, no need of JavaScript.</li>
+            <li>Website must be <i>responsive</i> in all devices [ desktop / tablet / mobile ]</li>
+            <li>Website must be one-page.</li>
+            <li>The color that will be used is: <i>Green 100%, 0%, 78%, 0% | Yellow 0%, 5%, 79%, 0% | Cancel-button in the formular 263°, 100%, 73%</i></li>
+            <li>The fonts must be: <i>Jockey One and Roboto Condensed.</i></li>
+            <li>When the pointer is hovering over the lettuce image, the arrow will move down a bit in a snappy way. Not too fast, not too slow.</li>
+            <li>A dynamic heading effect on "Tahini, chickpeas, drizzle", one word over another.</li>
+            <li>A slight sideways animation when hovering over the hamburger menu.</li>
+            <li>When the menu is open, the hamburger should turn into a closing icon: "X".</li>
+            <li>When clicking on "Explore menu", the food-page will appear.</li>
+            <li>You don't have to be able to close the cookie-bar.</li>
+            <li>You will able to close is the menu on the closing icon, not when pressing a menu link.</li>
+        </ul> 
 </details>
 
 ## 🗂️ Learning objectives & assessment
