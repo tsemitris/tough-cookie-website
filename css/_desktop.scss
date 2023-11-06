@@ -193,13 +193,13 @@ header {
                     @include centralizer(relative);
 
                     .drizzle_text {
-                        @include logospecs(5vh, 1.7, var(--text-color-rich-lilac), relative, 0vh, -0.6vh, var(--main-content-z-index))
+                        @include logospecs(remfunction(45), 1.7, var(--text-color-rich-lilac), relative, 0vh, remfunction(-3), var(--main-content-z-index))
                     }
                     .tahini_text {
-                        @include logospecs(17vh, 0.45, var(--text-color-green), relative, 0vh, 0vh, var(--main-content-z-index))
+                        @include logospecs(remfunction(120), 0.42, var(--text-color-green), relative, 0vh, 0vh, var(--main-content-z-index))
                     }
                     .chickpeas_text {
-                        @include logospecs(6.5vh, 1.1, var(--text-color-yellow), relative, 0vh, -12.5vh, var(--logo-extra-z-index))
+                        @include logospecs(remfunction(47), 1.2, var(--text-color-yellow), relative, 0vh, remfunction(-85), var(--logo-extra-z-index))
                     }
                 }
             }

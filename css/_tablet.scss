@@ -175,7 +175,7 @@ header {
                     
 
                     .drizzle_text {
-                        @include logospecs(5vh, 1.6, var(--text-color-rich-lilac), relative, 0, remfunction(51), var(--main-content-z-index));
+                        @include logospecs(2.25rem, 1.6, var(--text-color-rich-lilac), relative, 0, remfunction(58), var(--main-content-z-index));
                     }
                     .tahini_text {
                         @include logospecs(6rem, 0.45, var(--text-color-green), relative, 0, 0, var(--main-content-z-index));
